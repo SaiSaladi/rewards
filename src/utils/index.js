@@ -12,10 +12,35 @@ export const months = {
   10: 'November',
   11: 'December'
 }
+
+// column mapping to pass to antd Table
+export const tableColumns  = [
+  {
+    title: 'Date',
+    dataIndex: 'date',
+    key: 'date'
+  },
+  {
+    title: 'Amount',
+    dataIndex: 'amount',
+    key: 'amount'
+  },
+  {
+    title: 'Rewards',
+    dataIndex: 'rewards',
+    key: 'rewards',
+  }
+]
+
+// Function to calculate rewards
 const calcRewards = (amount) => {
-  return Math.ceil(amount)
+  let rewards = 0
+  amount = Math.floor(amount)
+  rewards = Math.max(amount-100, 0) + Math.max(amount-50, 0)
+  return rewards
 }
 
+// Function to chunk transaction into buckets of months
 export const chunkData = (transactions) => {
   const chunks = {}
   let totalRewards = 0
