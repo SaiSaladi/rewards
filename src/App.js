@@ -8,7 +8,10 @@ const App = () => {
         Rewards Application
       </header>
       <nav>
-        <Link to='/users'> Click for Users </Link>
+        <Link
+          className="link"
+          to='/users'
+        > Click for Users </Link>
       </nav>
       <Outlet />
     </div>
